@@ -1,13 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Vanilla JavaScript</title>
+
+    <script>
+        function myFunction() {
+            document.getElementById('demo6').innerHTML = 'Paragraph changed';
+        }
+    </script>
 </head>
+
 <body>
-    
-    <script src="index.js"></script>
+
+    <!-- <script src="index.js"></script> -->
+
+
+    <h1>My First JavaScript</h1>
+    <button type='button' onclick="document.getElementById('demo').innerHTML = Date()">
+        Click me to display the date and time
+    </button>
+
+    <p id="demo"></p>
+
+    <!-- JavaScript can change HTML content -->
+    <button type="button" onclick='document.getElementById("demo2").innerHTML= "Hello JavaScript"'>
+        click me
+    </button>
+
+    <p id="demo2">JavaScript can change HTML content</p>
+
+    <!-- JavaScript can change HTML attribute values -->
+    <p>JavaScript can change HTML attributes values.</p>
+    <button onclick="document.getElementById('myImage').src='https://www.w3schools.com/jS/pic_bulbon.gif'">
+        Turn on the light
+    </button>
+
+    <img id="myImage" src="https://www.w3schools.com/jS/pic_bulboff.gif" style="width:100px" />
+
+    <button onclick="document.getElementById('myImage').src='https://www.w3schools.com/jS/pic_bulboff.gif'">
+        Turn off the light
+    </button>
+
+    <!-- JavaScript can change the style of an HTML element -->
+    <p id="demo3">
+        JavaScript can change the style of an HTML element
+    </p>
+
+    <button type="button" onclick="document.getElementById('demo3').style.fontSize='35px'">
+        Click me!
+    </button>
+
+    <!-- JavaScript can hide HTML element -->
+    <p id="demo4">JavaScript can hide HTML elements</p>
+    <button type="button" onclick="document.getElementById('demo4').style.display='none'">
+        Click Me!
+    </button>
+
+    <!-- JavaScript can show HTML elements -->
+    <p id="demo5" style="display:none">
+        JavaScritp can show HTML elements
+    </p>
+
+    <button type="button" onclick="document.getElementById('demo5').style.display='block'">
+        Click Me!
+    </button>
+
+
+    <!-- 
+        vài ghi chú đơn giản: 
+        - js có thể được để trong thẻ head hoặc thẻ body
+        - 
+    -->
+
+    <p id="demo6">
+        A Paragraph Header
+    </p>
+    <button type="button" onclick="myFunction()">
+        Click Me!
+    </button>
+
+
+    <p id="demo7">A Paragraph body</p>
+
+    <button type="button" onclick="myBodyFunction()">Click Me!</button>
+
+    <script>
+        function myBodyFunction() {
+            document.getElementById('demo7').innerHTML = 'A Paragraph has changed in body';
+        }
+    </script>
+
+
+    <p id="demo8">A Paragraph External</p>
+
+    <button type="button" onclick="myExternalFunction()">Click Me!</button>  
+
+    <script src="myScript.js"></script>
+
+    <!-- 
+        - sử dụng "external scripts" khi code được sử dụng ở nhiều nơi
+        - file js có phần mở rộng là .js
+        - để sử dụng "external scripts" đặt tên của file trong thuộc tính "src" của thẻ <script>
+        => Exp: <script src="myScript.js"></script>
+        - có thể để tham chiếu "external script" ở thể <body> hoặc <head>
+        - script sẽ xử lý đúng như tại nơi mà thẻ <script> được đặt
+        - trong "external script" thì không được tồn tại thẻ <script> 
+     -->
+
+
+     <!-- 
+         - sử dụng "external script" có những điểm mạnh sau:
+         +) phân chia rõ ràng giữa code HTML và JS
+         +) làm cho code HTML và JS dễ đọc và bảo trì hơn
+         +) các file JS đã được lưu vào bộ nhơ (cached) làm cho trang web tải nhanh hơn
+         +) có thể thêm nhiều file js vào 1 trang:
+         => Exp: 
+         - <script src="myScript1.js"></script>
+         - <script src="myScript2.js"></script>
+      -->
+
+      <!-- 
+          - "external script" có được tham chiếu thông qua một địa chỉ URL tuyệt đối
+          hoặc một đường dẫn tương đối tới trang web hiện tại.
+          => Exp:
+          - <script src="https://www.w3schools.com/js/myScript1.js"></script>
+          - <script src="/js/myScript1.js"></script> (được đặt trong 1 folder khác)
+          - <script src="myScript1.js"></script> (được đặt trong cùng 1 folder)
+       -->
+
+
+       <!-- 
+           - JavaScript display posibilities:
+           +) sử dụng "innerHTML" để viết vào trong 1 đối tượng HTML
+           +) sử dụng "document.write" để viết vào trong HTML "output"
+           +) sử dụng "window.alert()" để viết vào trong 1 hộp thông báo
+           +) sử dụng "console.log()" để viết vào trong bảng điều khiển của trình duyệt
+        -->
+
+        <!-- 
+            USING INNER HTML
+            +) js sử dụng "document.getElementById(id)" để truy cập vào 1 đối tượng HTML
+            +) thuộc tính "id" định nghĩa đối tượng HTML
+            +) thuộc tính "innerHTML" định nghĩa nội dung của HTML
+            => cách này thường dùng để hiển thị dữ liệu trong HTML
+        -->
+
+        <p id="demo9"></p>
+
+        <script>
+            document.getElementById('demo9').innerHTML = 19 + 96;
+        </script>
 </body>
+
 </html>
