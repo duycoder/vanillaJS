@@ -154,6 +154,117 @@
     <script>
         document.getElementById('demo9').innerHTML = 19 + 96;
     </script>
+
+    <!-- 
+        USING document.write()
+        +) "document.write()" rất tiện ích khi sử dụng với mục đích test.
+        +) sử dụng "document.write()" đằng sau một tài liệu HTML đã được tải, sẽ xóa toàn bộ HTML đang tồn tại
+     -->
+
+    <script>
+        document.write(5 + 6);
+    </script>
+
+    <!-- 
+        USING window.alert()
+        +) sử dụng một hộp thông báo để hiển thị dữ liệu
+    -->
+
+    <script>
+        window.alert(5 + 6);
+    </script>
+
+    <!-- 
+        USING console.log()
+        +) sử dụng cho mục đích gỡ lỗi, để hiển thị dữ liệu
+     -->
+    <script>
+        console.log(5 + 6);
+    </script>
+
+    <!-- 
+        JAVASCRIPT PROGRAMS
+        +) 1 chương trình máy tính là một danh sách các "hướng dẫn" để được "xử lý" trên máy tính
+        +) trong ngôn ngữ lập trình, các bản hướng dẫn chương trình này được gọi là "câu lệnh" (state ments)
+        +) 1 chương trình JavaScript là một danh sách các dòng lệnh
+     -->
+
+    <!-- 
+        JAVASCRIPT STATEMENTS
+        +) các dòng lệnh js được tạo nên bởi: values, operator, expression, keyword, comment
+        +) hầu hết các chương trình js bao gồm rất nhiều dòng lệnh
+        +) các dòng lệnh sẽ được xử lý lần lượt, theo thứ tự mà chúng đã được viết ra.
+      -->
+
+    <!-- 
+          SEMICOLONS (dấu chấm phẩy)
+        +) dấu chấm phẩy phân chia các câu lệnh js
+        +) cho phép nhiều câu lệnh trên 1 dòng, mỗi câu lệnh được phân chia bởi 1 dấu hỏi chấm
+        +) trên web, dấu chẩm phẩy (;) không bắt buộc nhưng được khuyến khích => (để code dễ đọc hơn)
+       -->
+
+    <script>
+        var a, b, c;
+        a = 5;
+        b = 6;
+        c = a + b;
+
+        var d, e, f;
+        d = 5; e = 6; f = d + e;
+    </script>
+
+    <!-- 
+           WHITE SPACES 
+           +) js không quan tâm đến các khoảng trống, các khoảng trống thường được add vào để mã dễ đọc hơn
+           +) a good practices is to put spaces around operators ( = + - * /):
+        -->
+    <script>
+        var z = x + y;
+    </script>
+    <!-- 
+            LINE LENGTH and LINE BREAKS
+            +) tránh đế 1 dòng code quá 80 ký tự (phục vụ cho việc dễ đọc hơn)
+            +) nếu 1 dòng lệnh không đủ trên 1 dòng, thì nên xuống dòng sau 1 toán từ
+         -->
+
+    <script>
+        document.getElementById('demo1').innerHTML =
+            'Hello Dolly';
+    </script>
+
+    <!-- 
+             CODE BLOCKS
+             +) các dòng lệnh js được nhóm lại trong một khối mã, bên trong cặp dấu ngoặc đơn (curly brackets) {...}
+             +) mục đích của các khối mã (code blocks) này dùng để định nghĩa các dòng lệnh được xử lý cùng với nhau
+             +) bạn có thể tìm thấy các mã lệnh được nhóm trong một khối, đó là bên trong 1 hàm JS
+          -->
+
+    <script>
+        function myBlockFunc() {
+            document.getElementById('demo1').innerHTML = 'Hello Cricket';
+            document.getElementById('demo2').style.fontSize = '40px';
+        }
+    </script>
+
+    <!-- 
+        JS KEYWORDS
+        +) các dòng lệnh js thường được bắt đầu bằng một "keywords" để định nghĩa hành động sẽ được thực hiện (perform)
+        +) danh sách:
+        - break: hủy một "switch" hoặc một vòng lặp (loop)
+        - continue: ra khỏi một vòng lặp và bắt đầu ở đỉnh (top)
+        - debugger: dừng các xử lý của JS, và gọi hàm "debugging"
+        - do ... while: thực thi một khối dòng lệnh, và lặp lại khối đó, khi điều kiện "while" luôn đúng
+        - for: đánh dấu một khối lệnh được xử lý, cho đến khi nào điều kiện còn đúng
+        - function : định nghĩa một hàm
+        - if ... else: đánh dấu một khối lệnh sẽ được thực thi, dựa vào một điều kiện nào đó
+        - return: thoát khỏi hàm
+        - switch: đánh dấu một khối lệnh sẽ được thực thi, dựa vào các trường hợp khác nhau
+        - try ... catch: kế thừa việc quản lý lỗi (error handling) vào một khối lệnh
+        - var: định nghĩa một biến
+
+        +) các từ khóa trong js là các từ "riêng" (reserved words). 
+        Những từ "reserved words" không thể dùng cho việc đặt tên một biến nào đó.
+     -->
 </body>
 
 </html>
