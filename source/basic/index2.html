@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS Day 2</title>
+</head>
+
+<body>
+    <!-- 
+        VALUES
+        *) cú pháp js định nghĩa 2 kiểu giá trị: "fixed values" và "variable values"
+     -->
+
+    <script>
+        // JS LITERALS
+        // numbers area written with or without decimals:
+        var x = 10;
+        var y = 10.6;
+
+        // string are text, written within double or single quotes
+        var name = "John Doe";
+        var name2 = 'John Doe';
+
+        //JS VARIABLES
+        // variables used to stored data
+        // js use var keyword to declare variables
+        // an "equal sign" used to "assign values" to variables
+        var myX = 6; //declare variable named "myX" and "assign" value "6" for "myX"
+
+        //JS OPERATORS
+        // uses arithmetic operators (+ - * /) to "compute values"
+
+        //JS EXPRESSIONS
+        // an expression is combination of variables, values, operators to return a value.
+
+        //JS KEYWORS
+        // a keyword is to identify actions to be performed. Exp: like "var" keyword tells browsers to create a variables
+
+        //JS IDENTIFIERS
+        // they're names
+        // in js identifiers used to name variables, keywords, functions, labels, ...
+        // first character must be letter, underscore(_) or dollar sign($).
+        // numbers are not allowed to be first character to distinguish identifiers from numbers
+        // js identifiers does not allow hyphens(-) to be the name of a variables
+
+
+        //JS IS CASE SENSITIVE
+        // all js identifiers are case sensitive
+        // so "lastName" is not equal to "lastname"
+
+
+        //JS COMMENTS
+        // js comments can be used to explain js code, and make it more readable
+        // js comment also can be used to prevent execution, when testing alternative code
+
+        //SINGLE LINE COMMENTS
+        // they start with '//' and the end will be ignored by js
+        // they can be used before each line of code, or at the end of each line of code
+
+        //MULTI-LINE COMMENTS
+        // they start with '/*' and end with '*/'
+        // they often used for formal documentation
+
+        //JS VARIABLES
+        // js variables are containers to store data
+
+        //JS IDENTIFIERS
+        // all js variables must be identified with unique names
+        // these unique names are called identifiers
+        // identifiers can be short (x or y) or more descriptive name (age, sum, totalPrice)
+        // names can contain letters, digits, underscores, dollar signs
+        // names can begin with letters
+        // name can also begins with $ and _
+        // names are case sensitive( y != Y)
+        // reserved words (like JS keywords) can not be used as names
+
+        //ASSIGNMENT OPERATORS
+        // js the sign(=) is an "assignment" operator, not an "equal to" operator
+        // this is different from algebra. The following does not make sense in algebra
+        // x = x + 5
+        // in js, they make perfect sense: it assignes values of "x + 5" to "x"
+        // it calculates the value of "x + 5" and puts result into "x". The value of "x" is incremented by 5
+        // the "equal to" operator is written like "==" in JS
+
+        // JAVASCRIPT DATA TYPES
+        // js variables can hold numbers like 100 and text like "john doe"
+        // text values are called text string
+        // js variables can hold many types of data
+        // strings are written inside doulbe or single quotes, numbers are written with out quotes
+        // if u put a number into quotes, it will be treated as string
+
+        var pi = 3.14;
+        var person = 'John Son';
+        var answer = 'Yes! I am';
+
+        // DECLARING VARIABLES
+        // creating variables in js is called delaring variables
+
+        // in js, you declare variables with the "var" keywords
+        var carName;
+
+        // after declaration, the variable has no value (technically is has the value of "undefined")
+        // to assign value to variable, use the equal sign
+        carName = 'Volvo';
+
+        // you guys can also assign value to variable when you declare it
+        // var carName = 'Volvo';
+        // It is a very good programming practice to declare all the variables at the beginning of a script
+
+        //ONE STATEMENT, MANY VARIABLES
+        // you can declare many varibles in one statement
+        // start with the "var" keyword and seperate variables by "comma":
+        var actor = 'Mark WalhBerg', actress = 'Meryl Streep', film = 'Black Panther';
+        var boy = 'Nguyễn Ngọc Duy', girl = 'Nguyễn Hồng Vân', father = 'Nguyễn Xuân Điều', mother = 'Nguyễn Thị Nhã';
+
+        //they can span into multiple lines
+        var firstLang = 'Vietnamese',
+            secondLang = 'English',
+            thirdLang = 'Spainish';
+
+        //VALUE = undefined
+        // in computer program, variables are often declared without value
+        // the value can be something that has to be calculated, or something that will be provided later, like user input
+        // a variable without a value will have the value "undefined"
+
+        //REDECLARE VARIABLES
+        // if you re-declare a js variable, it will not lose its value
+        // the variale below still have the value "Mercedes" after the execution of these statements
+
+        var germanCar = 'Mercedes';
+        var germanCar;
+        console.log(germanCar);
+
+        //ARITHMETIC
+        // this is a weird part of js
+        // var x = "5" + 2 + 3 => 523
+        // var x = 2 + 3 + "5" => 55
+
+        //THE OPERATORS AND OPERANDS
+        // the numbers (arithmetic operation) are called "operands"
+        // the operator (to be performed between the two operands) is defined by an operator
+
+        // var heaven = 99 + 100 => "99" and "100" are operands and "+" is operator
+
+        //REMAINDER
+        // in modulus operator (%) returns the division remainder
+        // var x = 5;
+        // var y = 2;
+        // var z = x % y;
+        // in arithmetic, the division of 2 integers produces "quotient" and "remainder"
+        // in mathematics, the result of "modulo operation" is the "remainder" of an arithmetic division
+
+
+        //PRECEDENCE
+        // multiplication (*) and division (/) have higher "precedence" than addition (+) and subtraction (-)
+        // precedence can be changed by using parentheses
+        // precedence is computed from left to right
+
+        //ASSIGNMENT OPERATORS
+        /*
+            x = x << y
+            x = x >> y
+            x = x >>> y
+            x = x & y
+            x = x ^ y
+            x = x | y
+            x = x ** y
+        */
+
+        //DATA TYPES
+        // js variables can hold many "data types": numbers, string, object and more
+        var length = 16; //number 
+        var lastName = 'Johnson'; //String
+        var x = {
+            firstName: 'John',
+            lastName: 'Doe'
+        } //Object
+
+        //THE CONCEPT OF DATA TYPES
+        // to be able to operate on variables, it is important to know something about the type
+        // without a data types, a computer cannot safely solve this
+
+        var x1 = 22 + 'Volvo';
+
+        //js evaluates expressions from left to right. Different sequences can produce different results:
+        // var x = 16 + 4 + 'Volvo' => 20Volvo => js treats "16 + 4" as "number", until it reaches "Volvo"
+        // var x = 'Volvo' + 16 + 4 => Volvo164 => since the 1st operand is a string, all operands are treated as string
+
+        //JAVASCRIPT TYPES ARE DYNAMIC
+        // js has dynamic types, this meant that the same variable can be used to hold different data types
+        //var x = 'John'
+        //x = 1996
+        //x = {}
+
+        //JS STRINGS
+        // is the series of character like "John Doe"
+        // are written in quotes. You can use single or double quotes
+        // var carName = 'Volvo' or carName = "Volvo"
+
+        //JS NUMBERS
+        // there is only one type of number in jS
+        // numbers can be written with or without decimals
+        var numb = 245,
+            numb = 245.00;
+
+        //extra large or small numbers can be written with scientific (exponential) notation:
+        var yy = 123e5; //12300000
+        var zz = 123e-5; //0.00123
+
+        //JS BOOLEANS
+        // booleans have only 2 values: "true" or "false"
+
+        var water = 'water';
+        var air = 'air';
+        console.log(water == air);
+
+        //ARRAYS
+        // always written in square brackets
+        // array items are seperated by commas (,)
+        // the code beblow declares (creates) an array containing 3 items:
+        var cars = ["Saab", "Volvo", "BMW"];
+
+
+        //OBJECTS
+        // js objects are written in curly braces
+        // object properties are written as "name": "value" pairs, seperated by commas
+
+        var singer = {
+            name: 'Snoop Dogg',
+            genre: 'Rap, R&B',
+            country: 'USA'
+        }
+
+        //THE "typeof" OPERATORS
+        // you can use "typeof" operator to find the type of JavaScript variable
+        typeof "";
+        typeof 5;
+        typeof undefined;
+        //if you declare a variable without assign a value to it, it's "typeof" will be "undefined"
+
+        //NULL
+        // in js, "null" is "nothing" but the data type of "null" is "object"
+
+
+        //NULL VS UNDEFINED
+        // null and undefined are equal in value but different in type
+        typeof undefined //undefined
+        typeof null //object
+
+        undefined == null //true
+        undefined === null //false
+
+        //PRIMITIVE DATA
+        // a primitive data value is a single simple data value with no additional properties and methods
+        // the "typeof" operator can return on of 4 types: "string", "number", "boolean", "undefined"
+
+        typeof 'John';
+        typeof 3.14;
+        typeof true;
+        typeof false;
+        typeof xxx;
+
+        //COMPLEX DATA
+        //the "typeof" operator can return one of 2 complex types: "function" - "object"
+        //the "typeof" operator returns object both objects, arrays and null
+        //the "typeof" operator does not return objects for function
+
+        typeof { name: 'John', age: 34 };
+        typeof [1, 2, 3, 4];
+        typeof null;
+        typeof function myFunc() { };
+    </script>
+</body>
+
+</html>
