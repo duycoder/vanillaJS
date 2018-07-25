@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vanilla JS day 3</title>
+</head>
+
+<body>
+    <p id="demo"></p>
+    <script>
+        //js is loosely typed and dynamic language
+        //variables in js is not associated with any particular value type
+        //an variables can be assigned (and re-assigned) value off all types
+
+        var foo = 52 //foo is a number
+        var foo = 'bar' //foo is a String
+        var foo = true //foo is a boolean
+
+       //   there are 7 data types in javascript (according to ECMAScript)
+       //   6 primitive types: boolean, null, undefined, string, number, symbol (new)
+       //   and Object
+
+
+        //  all types in js (except object) define immutable values(values, which is
+        //  incapable of being changed)
+
+        //BOOLEAN TYPE
+        //  this type represents a logical entity and can have 2 values: "true" or "false"
+
+        //NULL TYPE
+        // this type has exactly one value: "null"
+
+        //UNDEFINED TYPE
+        //  a variable that has not been assigned a value has the value "undefined".
+
+        //NUMBER TYPE
+        //  there is only one number type
+        //  range -(2^53 - 1) to (2^53 - 1)
+        //  being able to represent floating point numbers
+        //  3 symbolic values: "NaN" - "-Infinity" - "+Infinity"
+        //  to check max/min value => use: Number.MAX_VALUE - Number.MIN_VALUE
+        //  in ECMAScript, to check if a number is in double-precision floating-point number rang: Number.isSafeInteger()
+        //  if out of this ranges, the integers in jS is no longer safe and has to be double-precision floating point approximate of value
+        //  check max/min safe integers: Number.MAX_SAFE_INTEGER - NUMBER.MIN_SAFE_INTEGER.
+        //  0 is the only number that has 2 representations: -0 and +0
+        //  -0 === +0 (this is true).
+        //  but when you divide by zero
+        //  1996/+0 = +Infinity
+        //  1996/-0 = -Infinity
+
+        //STRING TYPE
+        //  represent textual data
+        //  it is a set of "elements" of 16-bit unsigned integer values
+        //  each element in the String "occupies" a position in the String
+        //  jS string is immutable, once the string is created, it is not possible to modify it
+        //  it is posible to create another string based on an operation on original string. String.subStr() - String.concat()
+
+
+        //"stringly-typing" CODE
+        //  it can be tempting to use string to represents complex data with short term benefits:
+        //  => easy to build complex string with concatenation
+        //  => string is easy to debug
+        //  => strings are common denominator with alot of APIs(input field, local storage, values, XmlHttpRequest)
+
+        //  with conventions, it is posible to represent any data structure in a string
+        //  this is not a good idea. With seperator, one can "emulate" a list (while jS array is suitable)
+        //  when the separator is used in one of the "list" elements, then the "list" is broken, so maybe a escape character can be chosen
+        //  all of this requires conventions and creates an unnecessary maintennance burden
+        //  so use string for textual data, when reprenting complex data, parse strings and use appropriate abstraction
+
+        //SYMBOL TYPE
+        //  is a "unique" and "immutable" primitive value and maybe used as they key of Object property
+
+        //Objects
+        //  in computer science, an object is a value in memory which is possibly referenced by a "identifier"
+        //  Properties
+        //  in jS, objects can be seen as a collection of properties
+        //  with object literal syntax, a limited set of properties are initialized, then properties can be added and removed
+        //  property values can be value of any type, including other objects => which enable to build complex data structure
+        //  properties are identified using key values. A key value is either a "String" or "Symbol" value
+        
+        //  there are 2 types of object properties: "data property" and "accessor property"
+        
+        //  data property: associates a key with a value has 4 attributes
+        // [[value]]: (any js Type) the value retrieve by "get access" of the property
+        // [[writeable]]: (boolean) if "false" the [[value]] can't be changed
+        // [[enumerable]]: (boolean) if "true", the property will be "enumerated" in "for... in loops"
+        // [[configurable]]: (boolean) if "false", the property can't be deleted and attributes other than [[value]] and [[writeable]] can't be chagned
+
+        //  accessor property: associates a key with one or two accessor functions(get and set) to retreive or store a value
+        //  and has the following attributes
+        // [[get]]: (function object or undefined): a f(x) is called with empty args and retreives the property value whenever
+        //  a get access to the value is performed
+        
+        // [[set]]: (function object or undefined): a f(x) is called with an arg that contains the assigned value and is executed
+        // whenever a specified property is attempted to be changed
+
+        // [[enumerable]]: (boolean) if "true", the property will be "enumerated" in "for ... in loops"
+        // [[configurable]]: (boolean) if "false", the property can't be deleted and can't be changed to a data property
+
+        //  the attribute in jS is used by javascript engine, so you can't directly access it. That's why the attribute
+        //  is put in double square brackets insted of single
+
+        //NORMAL OBJECT AND FUNCTIONS
+        //  a js object is mapping between key and values. Key are "Strings" (or "Symbols")
+        //  and value can be anything. This makes object natural fit of "hashmaps"
+        
+        // functions are regular object with the additional capability of being callable
+
+        //DATES
+        // when representing dates, the best choices is use the built-in "Date Utility" in jS
+        
+        //INDEXED COLLECTIONS: Arrays and Typed Arrays
+        // "Array" is regular object which there is particular relationship between integer-key-ed properties
+        //  and "length" property
+        // "Arrays" inherited from "Array.prototype" which provides them a handful of convinient methods to  manipulate array
+        // "Arrays" is perfect candidate to represent lists or sets
+
+        // "Typed Arrays" are new to JS and present an array-like view of an underlaying binary data buffer
+
+
+        //KEYED COLLECTIONS: maps, sets, weakmaps, weaksets
+        //  these data structures take object references as keys and are introduced in ECMAScript 6
+        //  set - weakSet represent a set of object
+        //  map - weakMap associate a value to object
+        //  map != weakMap is in the former, object keys can be enumerated over. This allows garbage collection optimizations
+        //  in latter case
+        //  object can not be compared, so look-up performance necessarily be linear. native implementations
+        //  of them can have look-up performance that is approximately logarithm to constant time
+        //  when you want bind a data to a "DOM" node, you can set properties directly on the object or use "data-" attributes
+        //  this has a downside that "data" is available to any script that running in the same context
+        //  Maps and WeakMaps make it easy to privately bind data to an object
+
+        //STRUCTURED DATA JSON
+        //  JSON (JavaScript Object Notation) is lightweight data interchange format, derived from javascript
+        //  but used in many programming language.
+        //  JSON builds universal data structures
+        
+
+        //FUNCTIONS
+        // jS function is a block of code that execute particular task
+        // jS function executed when "something" invokes (call) it.
+
+        //FUNCTION SYNTAX
+        // a js function defined with a "function" keyword, followed by "name", followed by parentheses "()"
+        // function names can contain letters, digit, underscore and dollar sign ($)
+        // the parentheses my include parameter names separated by comma (,) "(param1, param2, ...)"
+        // the code to be executed, by the function, is placed inside curley brackets "{}"
+
+        //"parameters" (biến) are the listed inside the "parentheses ()" in function definition
+        //"arguments" (tham số) are the "values" received by function when it is invoked
+
+        //FUNCTION INVOCATION
+        // the code inside the function will execute when "something" invokes (calls) it
+        // when event occurs (like click a button)
+        // when it is invokes from js code
+        // automatically (self invoked)
+
+        //FUNCTION  RETURN
+        // when js reaches "return statement", the function will stop executing
+        // if the function was invoked from a statement, js will "return" to execute the code after invoking statement
+        // functions often "compute" a "return value". The return value is "returned" back to the "caller"
+
+        //WHY FUNCTION
+        // reuse code, defined code once and use it many times
+        // use the same code any times with different arguments, to produce different results
+
+        //THE OPERATOR "()" INVOKES THE FUNCTION
+        // accessing a function without "()" will return the "function definition" instead of "function result"
+
+        //FUNCTION USED AS VARIABLES
+        // function can be used the sameway as you use variables, in all types of formulas, assignments and calculation
+
+        //OBJECTS
+        // real life objects, properties, and methods
+        // a "car" has properties like weight and color, and "method" like "start" and "stop"
+        // all cars have same properties, but property "values" are different from car to car
+        // all cars have same method, but method are performed "at different times"
+        // js variables are containers for data values
+        // js objects are variables too, but objects can contain many "values"
+        // the values are written as "name:value" pairs (name and value are separated by a colon)
+        // js objects are containers for named values called "properties" or "method"
+
+        //OBJECT DEFINITION
+        // you define object with an object literal
+
+        //OBJECT PROPERTIES
+        // the "name:value" pairs in js are call "properties"
+
+        //ACCESSING OBJECT PROPERTIES
+        // you can access object properties in 2 ways
+        // objectName.propertyName
+        // objectName["propertyName"]
+
+        //OBJECT METHOD
+        // objects can also have methods
+        // method are "actions" that can be performed on objects
+        // methods are stored in properties as "function definitions"
+        // a method is a function stored as a property
+
+        //THE "THIS" KEYWORD
+        // in function definition, "this" refer to the "owner" of the function
+        
+        //ACCESSING METHOD OBJECTS
+        // you access an object method with the following syntax: objectName.methodName()
+        // if you access without "()", it will return "function definition"
+
+        //DO NOT DECLARE STRINGS, NUMBERS, AND BOOLEANS as OBJECTS
+        // when a js variable is declared with the "new" keyword, the variable is created as an object
+
+        var x = new String();
+        var y = new Number();
+        var z = new Boolean();
+
+        // avoid string, number, boolean objects, they complicated your code and slowdown the execution speed
+
+
+        //JAVASCRIPT EVENTS
+        // html events are "things" that happen to HTML elements
+        // when js used in html pages, js can "react" on these events
+        // events can be something browser does (finish loading)
+        // or something that use does (input field was changed) or a html button was clicked
+        // js let you executes code when events are detected
+        // html allows event handler attributes, "with javascript code", to be added to HTML elements
+        
+        // single quote <element event='some js code'/> or double quotes <element event="some js code">
+        // all html dom events: https://www.w3schools.com/jsref/dom_obj_event.asp
+
+
+        //STRINGS
+        // js strings are used for storing and manipulating text
+        // a js string is zero or more characters written inside quotes
+        // var x = "JOHN DOE"
+
+        //STRING LENGTH
+        // the length of string is found in the built in property "length"
+        // var txt = "ABC"
+        // var sln = txt.length
+
+        //SPECIAL CHARACTERS
+        // the backslash (\) escape character turns special characters into string character
+        // EXP: \', \", \\
+
+        //six others
+        // \b: backspace
+        // \f: form feed
+        // \n: newline
+        // \r: carriage return
+        // \t: horizontal tabulator
+        // \v: vertical tabulator
+        // all six above were originally designed to control typewriters, teletypes, fax machines. they do not make any
+        // sense in HTML.
+
+        //BREAKING LONG CODE LINE
+        // for best readability, often like to avoid code lines longer than 80 characters
+        // if js statements does not fit on one line, the best place to break it is after operator
+        document.getElementById('demo').innerHTML =
+        'DEMO';
+
+        //STRINGS CAN BE OBJECTS
+        // normally, js strings are primitive values, created from literals
+        // var firstName = "JOHN";
+        // but string can be defined as objects with keyword "new"
+        // var firstName = new String("JOHN")
+
+        // var x = "JOHN"
+        // var y = new String("JOHN")
+        // using == operator, equal string are equal
+        // using === operator, equal strings are not equal, because the === operator expects equality both type and value
+        // object can't be compare so it always return "false" when you compare it.
+
+
+        //NUMBERS
+        //js has only one type of number, numbers can be written with or without decimals
+        //var x = 3.14;
+        //var y = 3;
+
+        // js numbers are always 64 bit floating point
+        // js does not define different types of numbers: integers, short, long, floating point
+        // js numbers are always stored as double precision floating point numbers, following IEEE 754 standard
+        // this format stores numbers in 64bit, where the number (the fraction) is stored in bits 0 to 51, the exponent in bits 52 to 62
+        // and the sign in bit 63
+
+        //PRECISION
+        // integers (number without a period or exponent notation) are accurate up to 15 digits
+        // var x = 999999999999999;   // x will be 999999999999999
+        // var y = 9999999999999999;  // y will be 10000000000000000
+
+        // the maximum number of decimal is 17, but floating point arithmethic is not 100% accurate
+        // var x = 0.2 + 0.1 ==> x = 0.30000000000000004
+        // to solve this, it helps to multiply and divide
+        // var x = (0.2 * 10 + 0.1 * 10)/10 => x will be 0.3
+
+
+        // javascript will try to converts string to number in all numeric opertions
+        // var x = "100"
+        // var y = "10"
+        // var z = x - y => x = 90
+        // but js will use '+' operator to concatenate strings
+
+
+        //NaN - NOT A NUMBER
+        // NaN is a reserved word indicating that a number is not a legal number
+        // trying to do arithmethic with a non-numeric string will result in NaN
+        // var x = 100 / 'Apple' //x will be NaN (not a number)
+        // however if the string contains a numeric value, the result will be a number
+        // var x = 100 / '10'
+        // you can use the global js function "isNaN()" to find out if a value is a number
+        // NaN is a number, "typeof" NaN will return "number"
+        typeof(NaN);
+
+        //INFINITY
+        // infinity(-infinity) is the value that js will return if you calculate a number outside the largest possible numbers
+        // division by zero will give "Infinity" values
+        // but infinity is a number, type of Infinity will return "number"
+
+        //HEXADECIMAL
+        // js inteprets numeric constants as hexadecimal if they are preceded by 0x
+        // var x = 0xFF => x will be 255
+        // never write a number with a leading zero cuz some js versions intepret numbers as octal if they written with a leading zero
+        // by default js display number as "base 10" decimals
+        // but you can use the "toString()" method to output numbers from "base 2" to "base 36"
+        // hexadicmal is "base 16", decimal is "base 0", octal is "base 8", binary is "base 2"
+
+
+        //NUMBER CAN BE OBJECT
+        // normaly numbers are primitive values created from literals: var x = 123;
+        // but numbers can also defined as objects with the keyword new: var y = new Number(123)
+
+        //JAVASCRITP ARRAYS
+        // js arrays are used to store multiple values in a single variable
+        // var cars = ['Saab', 'Volvo', 'BMW'];
+
+        // arrays is a special variable, which can hold more than one value at a time
+        // arrays can hold many values under a single name, and you can access the values by referring to an index number
+        
+
+        //CREATING ARRAY
+        // the easiest way is to using array literal
+        // var array_name = [item1, item2, ...];
+        // or you can use the "new" keyword
+        // var array_name = new Array(item1, item2)
+
+        //ARRAYS ARE OBJECT
+        // arrays are special type of objects. It uses numbers to access it's elements
+        // var person = ['Ronaldo', 'Messi', 'Aguero']; => person[0] = 'Ronaldo';
+
+        //ARRAYS ELEMENTS CAN BE OBJECTS
+        // js variables can be objects, array are special kinds of objects
+        // because of this, you can have variables of different types in the same array
+        // you can have objects in an Array. You can have functions in an Array. You can have arrays in an Array
+        //myArr[0] = new Date();
+        //myArr[1] = new Number();
+        //myArr[2] = new String('demo');
+
+        //ARRAYS PROPERTY AND METHODS
+        // the real strength of array in js are built-in array properties and methods
+        // myArr.length; => the length property return the number of elements
+        // myArr.sort(); => the sort() method to "sort" array
+
+        //LOOPING ARRAY ELEMENTS
+        // the best way to loop through array, is using  "for" loop
+    </script>
+</body>
+
+</html>
